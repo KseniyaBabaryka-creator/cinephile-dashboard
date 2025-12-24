@@ -42,3 +42,76 @@ header{
 	color: var(--color-text-primary)
 }
 
+.new-film__link, .new-film__btn{
+	transition: all ease .2s;
+}
+
+.new-film__link:hover{
+	opacity: 0.85
+}
+
+.new-film__btn{
+	background: var(--color-text-secondary);
+	color: var(--color-bg-surface);
+	line-height: 0;
+	padding-bottom: 2px;
+	cursor: pointer;
+}
+
+.new-film__btn:active{
+	background: var(--color-text-primary);
+	transform: scale(.8);
+}
+
+.new-film__text{
+	color: var(--color-text-secondary);
+
+}
+
+.form__card{
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.form__label{
+	color: var(--color-text-secondary);
+	opacity: 1;
+}
+
+.form__input{
+	background: var(--color-text-secondary);
+	color: var(--color-accent-soft);
+	border-color: var(--color-text-secondary);
+	opacity: 1;
+}
+
+.form__input:focus{
+	border-color: var(--color-accent-soft) !important;
+	outline: 1px solid var(--color-accent-soft);
+}
+
+.basic-multi-select .css-1xc3v61-indicatorContainer{
+	color: var(--color-accent-soft);
+}
+
+.form__btn{
+	display: block;
+	background: var(--color-accent-soft);
+	padding: 8px 20px;
+	cursor: pointer;
+	transition: all ease-in-out .2s;
+}
+
+.form__btn:hover{
+	opacity: .85;
+}
+
+.form__btn:active{
+	background: #780f33;
+	transform: scale(.8)
+}
+
+
+
+
+
+

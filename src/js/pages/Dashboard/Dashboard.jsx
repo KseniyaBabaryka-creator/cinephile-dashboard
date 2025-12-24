@@ -1,21 +1,24 @@
 import StatCard from "./StatCard.jsx";
-import { films } from '/src/js/shared/mock/films.js'
 import MoodChart from "./MoodChart.jsx";
 import FilmsAmountChart from "./FilmsAmountChart.jsx";
-import {getMostFrequent} from "../../utils/analytics.js";
+import {getAverageRating, getMostFrequent} from "../../shared/utils/analytics.js";
+import useFilmStore from "../../shared/store/useFilmStore.js";
+import {Link} from "react-router-dom";
+
 function Dashboard() {
+	const films = useFilmStore((state) => state.films);
 
-	const averageRate =
-		films.length > 0
-			? films.reduce((sum, film) => sum + film.rating, 0) / films.length
-			: 0;
-
+	const averageRate = getAverageRating(films);
 	const bestDirector = getMostFrequent(films.map(f => f.director));
 	const bestGenre = getMostFrequent(films.flatMap(f => f.genres));
 
 
 	return(
 		<div className="w-full flex flex-col gap-8 p-4">
+			<Link to="/add" className="new-film__link flex items-center gap-4">
+				<button className="new-film__btn  text-center w-[40px] h-[40px] rounded-lg text-3xl">+</button>
+				<span className="new-film__text text-base font-normal">New Film</span>
+			</Link>
 			<div className="w-full flex flex-wrap gap-4">
 				<StatCard title={"Total Films"} text={films.length}/>
 				<StatCard title={"Most Watched Director"} text={bestDirector || '-'}/>

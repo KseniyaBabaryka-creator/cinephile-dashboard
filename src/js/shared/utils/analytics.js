@@ -9,3 +9,9 @@ export function getMostFrequent(items) {
 		{ key: null, count: 0 }
 	).key;
 }
+
+export function getAverageRating(items) {
+	return items.length > 0
+		? items.reduce((sum, film) => sum + film.rating, 0) / items.length
+		: 0;
+}

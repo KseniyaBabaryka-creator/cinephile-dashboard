@@ -1,4 +1,4 @@
-import {Area, AreaChart, Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
+import {Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
 
 function FilmsAmountChart({films}) {
 
