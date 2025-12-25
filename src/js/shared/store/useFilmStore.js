@@ -5,33 +5,42 @@
 
 import { create } from 'zustand';
 import {films as initialFilms} from "../mock/films.js";
+import {persist} from "zustand/middleware";
 
-const useFilmStore = create((set) => ({
-	films: initialFilms,
+const useFilmStore = create(
+	persist(
+		(set) => ({
+			films: initialFilms,
 
-	setFilms: (newFilms) => set({ films: newFilms}),
+			setFilms: (newFilms) => set({ films: newFilms}),
 
-	addFilm: (newFilm) => set((state) => ({
-		films: [
-			{
-				id: state.films.length + 1,
-				...newFilm,
-			},
-			...state.films,
-		]
-	})),
+			addFilm: (newFilm) => set((state) => ({
+				films: [
+					{
+						id: crypto.randomUUID(),
+						...newFilm,
+					},
+					...state.films,
+				]
+			})),
 
-	removeFilm: (id) => set((state) => ({
-		films: state.films.filter(film => film.id !== id)
-	})),
+			removeFilm: (id) => set((state) => ({
+				films: state.films.filter(film => film.id !== id)
+			})),
 
-	updateFilm: (updatedFilm) => set((state) => ({
-		films: state.films.map((film) =>
-			film.id === updatedFilm.id
-				? { ...film, ...updatedFilm }
-				: film
-		),
-	}))
-}));
+			updateFilm: (updatedFilm) => set((state) => ({
+				films: state.films.map((film) =>
+					film.id === updatedFilm.id
+						? { ...film, ...updatedFilm }
+						: film
+				),
+			}))
+		}),
+		{
+			name: 'cinephile-films-store',
+			partialize: (state) => ({ films: state.films }),
+		}
+		)
+	);
 
 export default useFilmStore;
