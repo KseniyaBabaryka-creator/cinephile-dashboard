@@ -15,10 +15,6 @@ function Dashboard() {
 
 	return(
 		<div className="w-full flex flex-col gap-8 p-4">
-			<Link to="/add" className="new-film__link flex items-center gap-4">
-				<button className="new-film__btn  text-center w-[40px] h-[40px] rounded-lg text-3xl">+</button>
-				<span className="new-film__text text-base font-normal">New Film</span>
-			</Link>
 			<div className="w-full flex flex-wrap gap-4">
 				<StatCard title={"Total Films"} text={films.length}/>
 				<StatCard title={"Most Watched Director"} text={bestDirector || '-'}/>

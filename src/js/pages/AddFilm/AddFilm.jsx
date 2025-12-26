@@ -75,11 +75,11 @@ function AddFilm() {
 		control: (styles, { isFocused }) => ({
 			...styles,
 			backgroundColor: '#1C1C1F',
-			borderColor: isFocused ? '#6D2C2C' : '#FFFFFF0F',
+			borderColor: isFocused ? '#55142587' : '#FFFFFF0F',
 			borderRadius: '12px',
 			boxShadow: 'none',
 			'&:hover': {
-				borderColor: '#6D2C2C',
+				borderColor: '#55142587',
 			},
 			minHeight: '42px',
 			color: '#F5F5F5'

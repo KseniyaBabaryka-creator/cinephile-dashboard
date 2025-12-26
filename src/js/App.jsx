@@ -5,8 +5,8 @@ import {Outlet} from "react-router-dom";
 function App() {
 
   return (
-    <div className="min-h-screen">
-      <Header title={"Cinéphile Dashboard"} description={"A reflection of your cinematic journey"} />
+    <div>
+      <Header />
       <Outlet />
     </div>
   )
