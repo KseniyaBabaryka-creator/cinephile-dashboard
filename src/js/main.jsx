@@ -11,7 +11,7 @@ import FilmDetails from "./pages/FilmDetails/FilmDetails.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-      <BrowserRouter>
+      <BrowserRouter basename="/cinephile-dashboard">
           <Routes>
               <Route path="/" element={<App />} >
                   <Route index element={<Dashboard />} />
