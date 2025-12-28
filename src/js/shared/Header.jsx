@@ -1,19 +1,20 @@
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import useFilmStore from "./store/useFilmStore.js";
 
 function Header() {
 	const location = useLocation();
+	const navigate = useNavigate();
 	const films = useFilmStore((state) => state.films);
 
 	return(
 		<header className="w-full flex flex-col gap-6 p-4">
-			<div className="header__top flex flex-col gap-2 border-b border-solid pb-4">
+			<div className="header__top flex flex-col gap-2 border-b border-solid pb-4 items-start">
 				<h1 className="text-3xl font-medium">
 					{location.pathname === "/filmlist" ? "Films" : "Cinéphile Dashboard"}
 				</h1>
-				{location.pathname !== "/filmlist" && <p className="font-normal text-sm italic">A reflection of your cinematic journey</p>}
-				{location.pathname === "/filmlist" &&
-					<Link to="/" className="header__link-back text-sm font-medium">Back to Dashboard</Link>
+				{location.pathname === "/"  && <p className="font-normal text-sm italic">A reflection of your cinematic journey</p>}
+				{location.pathname !== "/" &&
+					<button onClick={() => navigate(-1)} className="header__link-back text-sm font-medium cursor-pointer">Back</button>
 				}
 			</div>
 			{(location.pathname === "/" || location.pathname === "/filmlist") &&

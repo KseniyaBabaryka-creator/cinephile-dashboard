@@ -6,6 +6,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import AddFilm from "./pages/AddFilm/AddFilm.jsx";
 import FilmList from "./pages/FilmList/FilmList.jsx";
+import FilmDetails from "./pages/FilmDetails/FilmDetails.jsx";
 
 
 createRoot(document.getElementById('root')).render(
@@ -16,7 +17,7 @@ createRoot(document.getElementById('root')).render(
                   <Route index element={<Dashboard />} />
                   <Route path="add" element={<AddFilm />} />
                   <Route path="filmlist" element={<FilmList />} />
-                  <Route path="films/:id" element={<Dashboard />} />
+                  <Route path="films/:id" element={<FilmDetails />} />
               </Route>
           </Routes>
       </BrowserRouter>,

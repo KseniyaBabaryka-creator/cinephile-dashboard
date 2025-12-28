@@ -2,6 +2,7 @@ import {usePoster} from "../../shared/utils/usePoster.js";
 import {useState} from "react";
 import useFilmStore from "../../shared/store/useFilmStore.js";
 import {Link} from "react-router-dom";
+import {getFallbackGradient} from "../../shared/utils/moodColor.js";
 
 function FilmCard({film}) {
 	const moodMap = {
@@ -31,7 +32,7 @@ function FilmCard({film}) {
 						className="h-full w-full object-cover rounded-lg"
 					/>
 				) : (
-					<div className="h-full bg-[var(--color-bg-surface-elevated)] text-[var(--color-text-muted)] text-lg text-center flex items-center justify-center px-2">
+					<div className="h-full text-[var(--color-text-muted)] text-lg text-center flex items-center justify-center px-2" style={{ background: getFallbackGradient(film.mood) }}>
 						{film.title}
 					</div>
 				)}

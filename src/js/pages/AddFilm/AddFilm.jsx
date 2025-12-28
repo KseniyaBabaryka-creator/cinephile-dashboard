@@ -85,13 +85,32 @@ function AddFilm() {
 			color: '#F5F5F5'
 		}),
 
+		menu: (base) => ({
+			...base,
+			backgroundColor: '#6F6F73',
+			borderRadius: '1.5rem',
+			marginTop: 6,
+			boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+			overflow: 'hidden',
+			borderColor: '#FFFFFF0F',
+			borderStyle: 'solid',
+			borderWidth: '1px',
+		}),
+
+		menuList: (base) => ({
+			...base,
+			padding: 0,
+			backgroundColor: '#6F6F73',
+			borderColor: '#F5F5F5',
+		}),
+
 		option: (styles, { isFocused, isSelected }) => ({
 			...styles,
 			backgroundColor: isSelected
 				? 'rgba(109,44,44,0.2)'
 				: isFocused
 					? '#55142587'
-					: '#6F6F73',
+					: '',
 			color: '#F5F5F5',
 			cursor: 'pointer',
 			':active': {
